@@ -18,20 +18,13 @@
         <activity android:name=".StartedServiceActivity" />
         <activity android:name=".BoundServicesActivity" />
         <activity android:name=".IntentServiceActivity" />
+        <activity android:name=".JobSchedulerActivity" />
 
         <service android:name=".StartedService" />
         <service android:name=".BoundService" />
-
-        <!--
-            by making it false now you can only access from
-             inside the application else it will be accessible from outside the app
-        -->
         <service
             android:name=".MyIntentService"
             android:exported="false" />
-
-        <activity android:name=".JobSchedulerActivity" />
-        <activity android:name=".ForegroundServiceExample"></activity>
     </application>
 
 </manifest>
