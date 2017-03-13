@@ -5,8 +5,15 @@ import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
+
 /**
- * Created by faisal on 12/14/2015.
+ * MyIntentService class extends IntentService<p>
+ *
+ * Main task of this service is to hold request for 10 seconds and the process.
+ *
+ * for more details follow link :-
+ * https://developer.android.com/reference/android/app/IntentService.html
+ * @author Faisal Khan
  */
 public class MyIntentService extends IntentService {
 
@@ -16,6 +23,16 @@ public class MyIntentService extends IntentService {
 
     }
 
+    /**
+     * This method is invoked on the worker thread with a request to process.
+     * Only one Intent is processed at a time, but the processing happens on a worker thread that runs independently
+     * from other application logic. So, if this code takes a long time, it will hold up other requests to the same
+     * IntentService, but it will not hold up anything else. When all requests have been handled, the IntentService
+     * stops itself, so you should not call stopSelf().
+     *
+     * @param intent The value passed to startService(Intent). This may be null if the service is
+     *               being restarted after its process has gone away; see onStartCommand(Intent, int, int) for details.
+     */
     @Override
     protected void onHandleIntent(Intent intent) {
         Log.d(TAG,"Start onHandle = "+ intent.getStringExtra(IntentServiceActivity.INTENT_TAG));

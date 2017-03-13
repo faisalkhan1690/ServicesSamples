@@ -11,26 +11,32 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+/**
+ * Activity class to list all kind of services available in android Named as<p>
+ * 1) Started service
+ * 2) Bound service
+ * 3) Intent service
+ * 4) Job Scheduler
+ *
+ * @author Faisal Khan
+ */
 public class MainActivity extends AppCompatActivity {
-
-    private ListView listView;
-    private ArrayList<String> listData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        listView=(ListView)findViewById(R.id.listView);
-
-        listData=new ArrayList<String>();
+        ListView listView = (ListView) findViewById(R.id.listView);
+        ArrayList<String> listData = new ArrayList<>();
 
         listData.add("Started service");
         listData.add("Bound service");
         listData.add("Intent service");
-        listData.add("Intent service");
+        listData.add("Job Scheduler");
 
-        listView.setAdapter(new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_list_item_1, listData));
+
+        listView.setAdapter(new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, listData));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -46,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
 
                     case 2:
                         startActivity(new Intent(MainActivity.this,IntentServiceActivity.class));
+                        break;
+
+                    case 3:
+                        startActivity(new Intent(MainActivity.this,JobSchedulerActivity.class));
                         break;
 
                     default:
