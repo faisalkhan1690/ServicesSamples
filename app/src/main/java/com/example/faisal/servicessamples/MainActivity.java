@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case 3:
+                        startActivity(new Intent(MainActivity.this,ForegroundServiceExample.class));
+                        break;
+
+                    case 4:
                         startActivity(new Intent(MainActivity.this,JobSchedulerActivity.class));
                         break;
 

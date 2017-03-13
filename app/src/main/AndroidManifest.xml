@@ -30,7 +30,8 @@
             android:name=".MyIntentService"
             android:exported="false" />
 
-        <activity android:name=".JobSchedulerActivity"></activity>
+        <activity android:name=".JobSchedulerActivity" />
+        <activity android:name=".ForegroundServiceExample"></activity>
     </application>
 
 </manifest>
