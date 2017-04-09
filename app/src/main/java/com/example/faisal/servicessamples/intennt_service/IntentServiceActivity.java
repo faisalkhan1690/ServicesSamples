@@ -1,9 +1,11 @@
-package com.example.faisal.servicessamples;
+package com.example.faisal.servicessamples.intennt_service;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import com.example.faisal.servicessamples.R;
 
 /**
  * IntentServiceActivity class to show how to user intent service in android.<p>

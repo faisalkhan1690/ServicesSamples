@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="com.example.faisal.servicessamples.IntentServiceActivity">
+    tools:context="com.example.faisal.servicessamples.intennt_service.IntentServiceActivity">
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"

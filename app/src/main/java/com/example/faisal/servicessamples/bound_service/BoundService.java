@@ -1,11 +1,10 @@
-package com.example.faisal.servicessamples;
+package com.example.faisal.servicessamples.bound_service;
 
 import android.app.Service;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Chronometer;
 

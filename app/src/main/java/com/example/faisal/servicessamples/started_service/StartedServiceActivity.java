@@ -1,9 +1,12 @@
-package com.example.faisal.servicessamples;
+package com.example.faisal.servicessamples.started_service;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+
+import com.example.faisal.servicessamples.R;
+import com.example.faisal.servicessamples.started_service.StartedService;
 
 /**
  * StartedServiceActivity is here to show how to use Started Service in android project.<br>

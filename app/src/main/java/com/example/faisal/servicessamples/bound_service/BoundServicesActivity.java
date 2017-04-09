@@ -1,4 +1,4 @@
-package com.example.faisal.servicessamples;
+package com.example.faisal.servicessamples.bound_service;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -10,6 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.faisal.servicessamples.R;
 
 
 /**

@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:gravity="center_horizontal"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.faisal.servicessamples.BoundServicesActivity">
+    tools:context="com.example.faisal.servicessamples.bound_service.BoundServicesActivity">
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"

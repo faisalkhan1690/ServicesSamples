@@ -15,16 +15,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".StartedServiceActivity" />
-        <activity android:name=".BoundServicesActivity" />
-        <activity android:name=".IntentServiceActivity" />
-        <activity android:name=".JobSchedulerActivity" />
+        <activity android:name=".started_service.StartedServiceActivity" />
+        <activity android:name=".bound_service.BoundServicesActivity" />
+        <activity android:name=".intennt_service.IntentServiceActivity" />
+        <activity android:name=".job_scheduler.JobSchedulerActivity"
+            android:launchMode="singleTask"/>
 
-        <service android:name=".StartedService" />
-        <service android:name=".BoundService" />
+        <service android:name=".started_service.StartedService" />
+        <service android:name=".bound_service.BoundService" />
         <service
-            android:name=".MyIntentService"
+            android:name=".job_scheduler.MyJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+        <service
+            android:name=".intennt_service.MyIntentService"
             android:exported="false" />
+
+        <service android:name=".foreground_service.ForegroundService"/>
+
+        <activity android:name=".foreground_service.ForegroundServiceActivity"></activity>
     </application>
 
 </manifest>
