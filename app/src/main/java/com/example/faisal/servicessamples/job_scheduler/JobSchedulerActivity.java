@@ -46,13 +46,7 @@ public class JobSchedulerActivity extends AppCompatActivity {
     public static final String WORK_DURATION_KEY =
             BuildConfig.APPLICATION_ID + ".WORK_DURATION_KEY";
 
-    private EditText mDelayEditText;
-    private EditText mDeadlineEditText;
     private EditText mDurationTimeEditText;
-    private RadioButton mWiFiConnectivityRadioButton;
-    private RadioButton mAnyConnectivityRadioButton;
-    private CheckBox mRequiresChargingCheckBox;
-    private CheckBox mRequiresIdleCheckbox;
 
     private ComponentName mServiceComponent;
 
@@ -67,13 +61,7 @@ public class JobSchedulerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_job_scheduler);
 
         // Set up UI.
-        mDelayEditText = (EditText) findViewById(R.id.delay_time);
         mDurationTimeEditText = (EditText) findViewById(R.id.duration_time);
-        mDeadlineEditText = (EditText) findViewById(R.id.deadline_time);
-        mWiFiConnectivityRadioButton = (RadioButton) findViewById(R.id.checkbox_unmetered);
-        mAnyConnectivityRadioButton = (RadioButton) findViewById(R.id.checkbox_any);
-        mRequiresChargingCheckBox = (CheckBox) findViewById(R.id.checkbox_charging);
-        mRequiresIdleCheckbox = (CheckBox) findViewById(R.id.checkbox_idle);
         mServiceComponent = new ComponentName(this, MyJobService.class);
 
         mHandler = new IncomingMessageHandler(this);
@@ -105,32 +93,20 @@ public class JobSchedulerActivity extends AppCompatActivity {
     public void scheduleJob(View v) {
         JobInfo.Builder builder = new JobInfo.Builder(mJobId++, mServiceComponent);
 
-        String delay = mDelayEditText.getText().toString();
-        if (!TextUtils.isEmpty(delay)) {
-            builder.setMinimumLatency(Long.valueOf(delay) * 1000);
-        }
-        String deadline = mDeadlineEditText.getText().toString();
-        if (!TextUtils.isEmpty(deadline)) {
-            builder.setOverrideDeadline(Long.valueOf(deadline) * 1000);
-        }
-        boolean requiresUnmetered = mWiFiConnectivityRadioButton.isChecked();
-        boolean requiresAnyConnectivity = mAnyConnectivityRadioButton.isChecked();
-        if (requiresUnmetered) {
-            builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED);
-        } else if (requiresAnyConnectivity) {
-            builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY);
-        }
-        builder.setRequiresDeviceIdle(mRequiresIdleCheckbox.isChecked());
-        builder.setRequiresCharging(mRequiresChargingCheckBox.isChecked());
+//        builder.setMinimumLatency(Long.valueOf(delay) * 1000); to set minimum latency in network
+//        builder.setOverrideDeadline(Long.valueOf(deadline) * 1000);  // to set over due dead line
+//        builder.setRequiredNetworkType(JobInfo.NETWORK_TYPE_UNMETERED); //if only wifi requried
+//        builder.setRequiresDeviceIdle(true); // if device idle required
+        builder.setPeriodic(10000); // to set after a period
+//        builder.setRequiresCharging(true); // if device on charging requrried
 
-        // Extras, work duration.
+
         PersistableBundle extras = new PersistableBundle();
         String workDuration = mDurationTimeEditText.getText().toString();
         if (TextUtils.isEmpty(workDuration)) {
             workDuration = "1";
         }
         extras.putLong(WORK_DURATION_KEY, Long.valueOf(workDuration) * 1000);
-
         builder.setExtras(extras);
 
         // Schedule job
@@ -158,13 +134,9 @@ public class JobSchedulerActivity extends AppCompatActivity {
             // Finish the last one
             int jobId = allPendingJobs.get(0).getId();
             jobScheduler.cancel(jobId);
-            Toast.makeText(
-                    JobSchedulerActivity.this, String.format(getString(R.string.cancelled_job), jobId),
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(JobSchedulerActivity.this, getString(R.string.cancelled_job)+" "+jobId, Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(
-                    JobSchedulerActivity.this, getString(R.string.no_jobs_to_cancel),
-                    Toast.LENGTH_SHORT).show();
+            Toast.makeText(JobSchedulerActivity.this, getString(R.string.no_jobs_to_cancel), Toast.LENGTH_SHORT).show();
         }
     }
 

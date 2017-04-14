@@ -17,7 +17,7 @@
     <string name="delay">Delay:</string>
     <string name="deadline">Deadline:</string>
     <string name="work_duration">Work duration:</string>
-    <string name="cancelled_job">Cancelled job %d</string>
+    <string name="cancelled_job">Cancel last job</string>
     <string name="no_jobs_to_cancel">No jobs to cancel</string>
     <string name="all_jobs_cancelled">All jobs cancelled</string>
 </resources>

@@ -45,14 +45,8 @@ public class MyJobService extends JobService {
 
     @Override
     public boolean onStartJob(final JobParameters params) {
-        // The work that this service "does" is simply wait for a certain duration and finish
-        // the job (on another thread).
-
         sendMessage(MSG_COLOR_START, params.getJobId());
-
         long duration = params.getExtras().getLong(WORK_DURATION_KEY);
-
-        // Uses a handler to delay the execution of jobFinished().
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
