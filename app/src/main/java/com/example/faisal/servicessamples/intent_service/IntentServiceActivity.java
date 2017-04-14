@@ -1,4 +1,4 @@
-package com.example.faisal.servicessamples.intennt_service;
+package com.example.faisal.servicessamples.intent_service;
 
 import android.content.Intent;
 import android.os.Bundle;

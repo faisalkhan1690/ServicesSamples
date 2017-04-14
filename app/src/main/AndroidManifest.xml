@@ -17,7 +17,7 @@
         </activity>
         <activity android:name=".started_service.StartedServiceActivity" />
         <activity android:name=".bound_service.BoundServicesActivity" />
-        <activity android:name=".intennt_service.IntentServiceActivity" />
+        <activity android:name=".intent_service.IntentServiceActivity" />
         <activity android:name=".job_scheduler.JobSchedulerActivity"
             android:launchMode="singleTask"/>
 
@@ -28,7 +28,7 @@
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
         <service
-            android:name=".intennt_service.MyIntentService"
+            android:name=".intent_service.MyIntentService"
             android:exported="false" />
 
         <service android:name=".foreground_service.ForegroundService"/>

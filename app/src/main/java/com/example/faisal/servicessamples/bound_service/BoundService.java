@@ -9,7 +9,7 @@ import android.util.Log;
 import android.widget.Chronometer;
 
 /**
- * BoundService class extends service o show how to use Bound service in android
+ * BoundService class extends service to show how to use Bound service in android
  *
  * This service runs a timer in background that can be accessed by caller  activity any time.
  *

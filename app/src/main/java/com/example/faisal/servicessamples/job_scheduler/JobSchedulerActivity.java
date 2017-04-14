@@ -14,9 +14,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,7 +26,15 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 
 /**
- * Activity class for demonstrating JobScheduler
+ * Activity class for demonstrating JobScheduler. there is two main thing that is JobInfo and JobScheduler.
+ * JobScheduler API provides an interface for scheduling background tasks when certain tasks apply.
+ * and Container of data passed to the JobScheduler fully encapsulating the parameters
+ * required to schedule work against the calling application. These are constructed using the JobInfo.Builder.
+ * You must specify at least one sort of constraint on the JobInfo object that you are creating.
+ *
+ *
+ * For more info :- https://developer.android.com/reference/android/app/job/JobInfo.html
+ * https://developer.android.com/samples/JobScheduler/index.html
  *
  * @author Faisal Khan
  */
@@ -41,15 +47,11 @@ public class JobSchedulerActivity extends AppCompatActivity {
     public static final int MSG_COLOR_START = 2;
     public static final int MSG_COLOR_STOP = 3;
 
-    public static final String MESSENGER_INTENT_KEY
-            = BuildConfig.APPLICATION_ID + ".MESSENGER_INTENT_KEY";
-    public static final String WORK_DURATION_KEY =
-            BuildConfig.APPLICATION_ID + ".WORK_DURATION_KEY";
+    public static final String MESSENGER_INTENT_KEY= BuildConfig.APPLICATION_ID + ".MESSENGER_INTENT_KEY";
+    public static final String WORK_DURATION_KEY = BuildConfig.APPLICATION_ID + ".WORK_DURATION_KEY";
 
     private EditText mDurationTimeEditText;
-
     private ComponentName mServiceComponent;
-
     private int mJobId = 0;
 
     // Handler for incoming messages from the service.
@@ -60,7 +62,6 @@ public class JobSchedulerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_job_scheduler);
 
-        // Set up UI.
         mDurationTimeEditText = (EditText) findViewById(R.id.duration_time);
         mServiceComponent = new ComponentName(this, MyJobService.class);
 
@@ -141,9 +142,9 @@ public class JobSchedulerActivity extends AppCompatActivity {
     }
 
     /**
-     * A {@link Handler} allows you to send messages associated with a thread. A {@link Messenger}
-     * uses this handler to communicate from {@link MyJobService}. It's also used to make
-     * the start and stop views blink for a short period of time.
+     * A Handler allows you to send messages associated with a thread.
+     * A Messenger uses this handler to communicate from MyJobService.
+     * It's also used to make the start and stop views blink for a short period of time.
      */
     private static class IncomingMessageHandler extends Handler {
 
@@ -151,7 +152,7 @@ public class JobSchedulerActivity extends AppCompatActivity {
         private WeakReference<JobSchedulerActivity> mActivity;
 
         IncomingMessageHandler(JobSchedulerActivity activity) {
-            super(/* default looper */);
+            super();
             this.mActivity = new WeakReference<>(activity);
         }
 

@@ -12,7 +12,7 @@ import android.widget.Toast;
 import com.example.faisal.servicessamples.foreground_service.ForegroundServiceActivity;
 import com.example.faisal.servicessamples.job_scheduler.JobSchedulerActivity;
 import com.example.faisal.servicessamples.bound_service.BoundServicesActivity;
-import com.example.faisal.servicessamples.intennt_service.IntentServiceActivity;
+import com.example.faisal.servicessamples.intent_service.IntentServiceActivity;
 import com.example.faisal.servicessamples.started_service.StartedServiceActivity;
 
 import java.util.ArrayList;
@@ -39,8 +39,8 @@ public class MainActivity extends AppCompatActivity {
         listData.add("Started service");
         listData.add("Bound service");
         listData.add("Intent service");
-        listData.add("Job Scheduler");
         listData.add("Foreground Service");
+        listData.add("Job Scheduler");
 
 
         listView.setAdapter(new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_list_item_1, listData));
@@ -62,11 +62,11 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case 3:
-                        startActivity(new Intent(MainActivity.this,JobSchedulerActivity.class));
+                        startActivity(new Intent(MainActivity.this,ForegroundServiceActivity.class));
                         break;
 
                     case 4:
-                        startActivity(new Intent(MainActivity.this,ForegroundServiceActivity.class));
+                        startActivity(new Intent(MainActivity.this,JobSchedulerActivity.class));
                         break;
 
                     default:

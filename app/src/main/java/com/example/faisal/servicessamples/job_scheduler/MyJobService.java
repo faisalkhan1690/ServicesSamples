@@ -15,6 +15,16 @@ import static com.example.faisal.servicessamples.job_scheduler.JobSchedulerActiv
 import static com.example.faisal.servicessamples.job_scheduler.JobSchedulerActivity.MSG_COLOR_STOP;
 import static com.example.faisal.servicessamples.job_scheduler.JobSchedulerActivity.WORK_DURATION_KEY;
 
+/**
+ * MyJobService extends JobService to provide a service that will handle by job
+ * scheduler to handle specific task with specific constraint. this service runs a task for given time.
+ * That will pass by activity and notify back to activity status of task.
+ *
+ * for more info :- https://developer.android.com/reference/android/app/job/JobService.html
+ *
+ *
+ * @author Faisal Khan
+ */
 public class MyJobService extends JobService {
 
     private static final String TAG = MyJobService.class.getSimpleName();
@@ -46,6 +56,8 @@ public class MyJobService extends JobService {
     @Override
     public boolean onStartJob(final JobParameters params) {
         sendMessage(MSG_COLOR_START, params.getJobId());
+
+        // get work duration key passed from activity
         long duration = params.getExtras().getLong(WORK_DURATION_KEY);
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

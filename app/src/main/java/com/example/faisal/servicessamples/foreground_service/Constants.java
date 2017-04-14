@@ -1,16 +1,27 @@
 package com.example.faisal.servicessamples.foreground_service;
 
-public class Constants {
-    public interface ACTION {
-        public static String MAIN_ACTION = "com.truiton.foregroundservice.action.main";
-        public static String PREV_ACTION = "com.truiton.foregroundservice.action.prev";
-        public static String PLAY_ACTION = "com.truiton.foregroundservice.action.play";
-        public static String NEXT_ACTION = "com.truiton.foregroundservice.action.next";
-        public static String STARTFOREGROUND_ACTION = "com.truiton.foregroundservice.action.startforeground";
-        public static String STOPFOREGROUND_ACTION = "com.truiton.foregroundservice.action.stopforeground";
+/**
+ * Constants  class to define constants related to foreground service
+ *
+ * @author Faisal Khan
+ */
+class Constants {
+    /**
+     * Contains all action related to notification
+     */
+    interface ACTION {
+        String MAIN_ACTION = "com.faisal.khan.action.main";
+        String PREV_ACTION = "com.faisal.khan.action.prev";
+        String PLAY_ACTION = "com.faisal.khan.action.play";
+        String NEXT_ACTION = "com.faisal.khan.action.next";
+        String START_FOREGROUND_ACTION = "com.faisal.khan.action.startforeground";
+        String STOP_FOREGROUND_ACTION = "com.faisal.khan.action.stopforeground";
     }
 
-    public interface NOTIFICATION_ID {
-        public static int FOREGROUND_SERVICE = 101;
+    /**
+     * Contains unique notification id
+     */
+    interface NOTIFICATION_ID {
+        int FOREGROUND_SERVICE = 101;
     }
 }
